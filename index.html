@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Control de Mal Parqueo · Santa Marta</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div>
+        <h1>Control de Espacio Público · Santa Marta</h1>
+        <p class="subtitulo">Reto No. 2 · Ingeniería de Sistemas · Universidad del Magdalena</p>
+      </div>
+      <nav class="tabs no-print">
+        <button id="tab-captura" class="tab-btn activo" type="button">Reportar (&lt; 30 s)</button>
+        <button id="tab-tablero" class="tab-btn" type="button">Tablero y Mapa</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <!-- VISTA 1: CAPTURA RÁPIDA (MÓVIL) -->
+    <section id="vista-captura" class="card">
+      <h2>Nuevo reporte de obstrucción</h2>
+      <p class="ayuda">Marca el punto en el mapa o usa el GPS, elige categoría y actor. <strong>Recuerda:</strong> no fotografíes rostros ni placas.</p>
+
+      <form id="form-captura">
+        <div class="campo">
+          <label>1. Ubicación en el mapa</label>
+          <div class="ubicacion-acciones">
+            <button id="btn-gps" type="button" class="btn-secundario">Usar mi ubicación GPS</button>
+            <div class="coords-mini">
+              <input id="captura-lat" type="text" placeholder="Latitud" readonly required />
+              <input id="captura-lng" type="text" placeholder="Longitud" readonly required />
+            </div>
+          </div>
+          <div id="mapa-captura" class="mapa-mini"></div>
+        </div>
+
+        <div class="campo">
+          <label for="captura-cuadra">2. Cuadra (se sugiere según el punto)</label>
+          <select id="captura-cuadra" required></select>
+        </div>
+
+        <div class="campo">
+          <label>3. Categoría de obstrucción</label>
+          <div class="opciones-grid">
+            <label class="opcion-card">
+              <input type="radio" name="categoria" value="doble_fila" required />
+              <span>Estacionamiento en vía prohibida o doble fila</span>
+            </label>
+            <label class="opcion-card">
+              <input type="radio" name="categoria" value="bloqueo_rampa_cebra_paradero" />
+              <span>Bloqueo de rampa peatonal, cebra o paradero</span>
+            </label>
+            <label class="opcion-card">
+              <input type="radio" name="categoria" value="invasion_anden" />
+              <span>Invasión de andén por comercio o mercancía</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label>4. Tipo de actor</label>
+          <div class="opciones-grid">
+            <label class="opcion-card">
+              <input type="radio" name="actor" value="vehiculo_particular" required />
+              <span>Vehículo particular</span>
+            </label>
+            <label class="opcion-card">
+              <input type="radio" name="actor" value="motocicleta" />
+              <span>Motocicleta</span>
+            </label>
+            <label class="opcion-card">
+              <input type="radio" name="actor" value="vehiculo_carga" />
+              <span>Vehículo de carga descargando</span>
+            </label>
+            <label class="opcion-card">
+              <input type="radio" name="actor" value="mobiliario_comercial" />
+              <span>Mobiliario comercial</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="captura-foto">5. Foto anonimizada (opcional, se reduce a 800 px)</label>
+          <input id="captura-foto" type="file" accept="image/*" capture="environment" />
+          <img id="foto-preview" class="foto-preview oculto" alt="Vista previa de evidencia" />
+        </div>
+
+        <div id="captura-mensaje" class="mensaje-alerta"></div>
+        <button type="submit" class="btn-primario btn-grande">Guardar reporte</button>
+      </form>
+    </section>
+
+    <!-- VISTA 2: TABLERO OPERATIVO -->
+    <section id="vista-tablero" class="oculto">
+      <div class="card no-print">
+        <div class="filtros-header">
+          <h2>Filtros del tablero</h2>
+          <button id="btn-limpiar-filtros" type="button" class="btn-enlace">Limpiar filtros</button>
+        </div>
+        <div class="filtros-grid">
+          <div>
+            <label for="filtro-sector">Sector</label>
+            <select id="filtro-sector"></select>
+          </div>
+          <div>
+            <label for="filtro-cuadra">Cuadra</label>
+            <select id="filtro-cuadra"></select>
+          </div>
+          <div>
+            <label for="filtro-franja">Franja horaria</label>
+            <select id="filtro-franja">
+              <option value="todas">Todas</option>
+              <option value="pico">Hora pico</option>
+              <option value="valle">Hora valle</option>
+            </select>
+          </div>
+          <div>
+            <label for="filtro-categoria">Categoría</label>
+            <select id="filtro-categoria">
+              <option value="todas">Todas</option>
+              <option value="doble_fila">Vía prohibida / doble fila</option>
+              <option value="bloqueo_rampa_cebra_paradero">Bloqueo rampa / cebra / paradero</option>
+              <option value="invasion_anden">Invasión de andén</option>
+            </select>
+          </div>
+          <div>
+            <label for="filtro-actor">Actor</label>
+            <select id="filtro-actor">
+              <option value="todos">Todos</option>
+              <option value="vehiculo_particular">Vehículo particular</option>
+              <option value="motocicleta">Motocicleta</option>
+              <option value="vehiculo_carga">Vehículo de carga</option>
+              <option value="mobiliario_comercial">Mobiliario comercial</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="kpis-grid">
+        <div class="kpi-card">
+          <span class="kpi-label">Reportes filtrados</span>
+          <strong id="kpi-total" class="kpi-valor">0</strong>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Doble fila / vía prohibida</span>
+          <strong id="kpi-doble-fila" class="kpi-valor">0%</strong>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Bloqueo rampa / cebra</span>
+          <strong id="kpi-bloqueo" class="kpi-valor">0%</strong>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Invasión de andén</span>
+          <strong id="kpi-anden" class="kpi-valor">0%</strong>
+        </div>
+      </div>
+
+      <div class="card no-print">
+        <div class="mapa-controles">
+          <h2>Mapa de calor y puntos de reincidencia</h2>
+          <div class="capas-toggles">
+            <label><input id="toggle-calor" type="checkbox" checked /> Capa de calor</label>
+            <label><input id="toggle-puntos" type="checkbox" checked /> Puntos individuales</label>
+          </div>
+        </div>
+        <div id="mapa-tablero" class="mapa-principal"></div>
+      </div>
+
+      <div class="card">
+        <div class="resumen-header">
+          <h2>Resumen operativo · Top 5 cuadras más críticas</h2>
+          <div class="acciones-resumen no-print">
+            <button id="btn-imprimir" type="button" class="btn-secundario">Imprimir resumen</button>
+            <button id="btn-exportar" type="button" class="btn-secundario">Exportar JSON</button>
+            <label class="btn-secundario btn-file">
+              Importar JSON
+              <input id="input-importar" type="file" accept=".json,application/json" hidden />
+            </label>
+          </div>
+        </div>
+        <div class="tabla-responsive">
+          <table class="tabla-resumen">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Cuadra</th>
+                <th>Puntaje</th>
+                <th>Reportes</th>
+                <th>Recomendación</th>
+                <th>Regla aplicada</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-resumen-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
