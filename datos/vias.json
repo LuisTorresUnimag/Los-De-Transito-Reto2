@@ -1,66 +1,34 @@
 [
   {
-    "cuadra": "CR5-C14-C15",
-    "nombre": "Carrera 5 entre Calles 14 y 15",
-    "sector": "Centro Histórico",
-    "tipo_via": "arterial",
-    "lat": 11.2442,
-    "lng": -74.2106
-  },
-  {
-    "cuadra": "CR5-C15-C16",
-    "nombre": "Carrera 5 entre Calles 15 y 16",
-    "sector": "Centro Histórico",
-    "tipo_via": "arterial",
-    "lat": 11.2435,
-    "lng": -74.2107
-  },
-  {
-    "cuadra": "CR5-C16-C17",
-    "nombre": "Carrera 5 entre Calles 16 y 17",
-    "sector": "Centro Histórico",
-    "tipo_via": "arterial",
-    "lat": 11.2428,
-    "lng": -74.2108
-  },
-  {
-    "cuadra": "CR5-C17-C18",
-    "nombre": "Carrera 5 entre Calles 17 y 18",
-    "sector": "Centro Histórico",
-    "tipo_via": "arterial",
-    "lat": 11.2421,
-    "lng": -74.2109
-  },
-  {
-    "cuadra": "CR4-C15-C16",
-    "nombre": "Carrera 4 entre Calles 15 y 16",
-    "sector": "Centro Histórico",
-    "tipo_via": "secundaria",
-    "lat": 11.2436,
-    "lng": -74.2116
-  },
-  {
-    "cuadra": "C14-CR4-CR5",
-    "nombre": "Calle 14 entre Carreras 4 y 5",
-    "sector": "Centro Histórico",
-    "tipo_via": "secundaria",
-    "lat": 11.2445,
-    "lng": -74.2111
-  },
-  {
-    "cuadra": "CR9-C11-C12",
-    "nombre": "Carrera 9 entre Calles 11 y 12",
-    "sector": "Mercado Público",
-    "tipo_via": "arterial",
-    "lat": 11.2454,
-    "lng": -74.2055
-  },
-  {
     "cuadra": "C11-CR8-CR9",
-    "nombre": "Calle 11 entre Carreras 8 y 9",
+    "nombre": "Calle 11 entre Cra 8 y Cra 9",
+    "sector": "Mercado Público",
+    "tipo_via": "arterial",
+    "lat": 11.245917,
+    "lng": -74.207052
+  },
+  {
+    "cuadra": "CR9-C10-C11",
+    "nombre": "Cra 9 entre Calle 10 y Calle 11",
+    "sector": "Mercado Público",
+    "tipo_via": "arterial",
+    "lat": 11.246180,
+    "lng": -74.206278
+  },
+  {
+    "cuadra": "C10-CR8-CR9",
+    "nombre": "Calle 10 entre Cra 8 y Cra 9",
     "sector": "Mercado Público",
     "tipo_via": "secundaria",
-    "lat": 11.2458,
-    "lng": -74.2062
+    "lat": 11.246738,
+    "lng": -74.206954
+  },
+  {
+    "cuadra": "CR8-C10-C11",
+    "nombre": "Cra 8 entre Calle 10 y Calle 11",
+    "sector": "Mercado Público",
+    "tipo_via": "secundaria",
+    "lat": 11.246552,
+    "lng": -74.207622
   }
 ]
