@@ -2,361 +2,481 @@
   {
     "id": "MP-001",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T07:45",
-    "lat": 11.2442,
-    "lng": -74.2106,
-    "cuadra": "CR5-C14-C15",
-    "categoria": "doble_fila",
-    "actor": "vehiculo_particular",
-    "foto": "",
-    "criticidad": { "puntaje": 9, "nivel": "Alto" }
+    "fecha_hora": "2026-11-18T07:35",
+    "lat": 11.24542,
+    "lng": -74.20625,
+    "cuadra": "C11-CR8-CR9",
+    "categoria": "invasion_anden",
+    "actor": "mobiliario_comercial",
+    "foto": "datos/fotos/mp-001.jpg",
+    "criticidad": {
+      "puntaje": 8,
+      "nivel": "Alto",
+      "franja": "pico"
+    }
   },
   {
     "id": "MP-002",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T07:55",
-    "lat": 11.2435,
-    "lng": -74.2107,
-    "cuadra": "CR5-C15-C16",
-    "categoria": "bloqueo_rampa_cebra_paradero",
-    "actor": "motocicleta",
-    "foto": "",
-    "criticidad": { "puntaje": 9, "nivel": "Alto" }
+    "fecha_hora": "2026-11-18T07:45",
+    "lat": 11.2454,
+    "lng": -74.2062,
+    "cuadra": "C11-CR8-CR9",
+    "categoria": "invasion_anden",
+    "actor": "mobiliario_comercial",
+    "foto": "datos/fotos/mp-002.jpg",
+    "criticidad": {
+      "puntaje": 8,
+      "nivel": "Alto",
+      "franja": "pico"
+    }
   },
   {
     "id": "MP-003",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T08:05",
-    "lat": 11.2428,
-    "lng": -74.2108,
-    "cuadra": "CR5-C16-C17",
-    "categoria": "doble_fila",
-    "actor": "vehiculo_carga",
-    "foto": "",
-    "criticidad": { "puntaje": 9, "nivel": "Alto" }
+    "fecha_hora": "2026-11-18T07:55",
+    "lat": 11.24541,
+    "lng": -74.20615,
+    "cuadra": "C11-CR8-CR9",
+    "categoria": "invasion_anden",
+    "actor": "mobiliario_comercial",
+    "foto": "datos/fotos/mp-003.jpg",
+    "criticidad": {
+      "puntaje": 8,
+      "nivel": "Alto",
+      "franja": "pico"
+    }
   },
   {
     "id": "MP-004",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T08:15",
-    "lat": 11.2421,
-    "lng": -74.2109,
-    "cuadra": "CR5-C17-C18",
+    "fecha_hora": "2026-11-18T08:05",
+    "lat": 11.24539,
+    "lng": -74.2061,
+    "cuadra": "C11-CR8-CR9",
     "categoria": "invasion_anden",
     "actor": "mobiliario_comercial",
-    "foto": "",
-    "criticidad": { "puntaje": 8, "nivel": "Alto" }
+    "foto": "datos/fotos/mp-004.jpg",
+    "criticidad": {
+      "puntaje": 8,
+      "nivel": "Alto",
+      "franja": "pico"
+    }
   },
   {
     "id": "MP-005",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T08:20",
-    "lat": 11.2436,
-    "lng": -74.2116,
-    "cuadra": "CR4-C15-C16",
-    "categoria": "doble_fila",
-    "actor": "vehiculo_particular",
-    "foto": "",
-    "criticidad": { "puntaje": 7, "nivel": "Alto" }
+    "fecha_hora": "2026-11-18T09:10",
+    "lat": 11.2454,
+    "lng": -74.20605,
+    "cuadra": "C11-CR8-CR9",
+    "categoria": "invasion_anden",
+    "actor": "mobiliario_comercial",
+    "foto": "datos/fotos/mp-005.jpg",
+    "criticidad": {
+      "puntaje": 6,
+      "nivel": "Medio",
+      "franja": "valle"
+    }
   },
   {
     "id": "MP-006",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T09:40",
-    "lat": 11.2445,
-    "lng": -74.2111,
-    "cuadra": "C14-CR4-CR5",
+    "fecha_hora": "2026-11-18T09:20",
+    "lat": 11.24542,
+    "lng": -74.206,
+    "cuadra": "C11-CR8-CR9",
     "categoria": "invasion_anden",
-    "actor": "motocicleta",
-    "foto": "",
-    "criticidad": { "puntaje": 4, "nivel": "Bajo" }
+    "actor": "mobiliario_comercial",
+    "foto": "datos/fotos/mp-006.jpg",
+    "criticidad": {
+      "puntaje": 6,
+      "nivel": "Medio",
+      "franja": "valle"
+    }
   },
   {
     "id": "MP-007",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T09:50",
-    "lat": 11.2454,
-    "lng": -74.2055,
-    "cuadra": "CR9-C11-C12",
-    "categoria": "doble_fila",
-    "actor": "vehiculo_carga",
-    "foto": "",
-    "criticidad": { "puntaje": 7, "nivel": "Alto" }
+    "fecha_hora": "2026-11-18T09:30",
+    "lat": 11.24541,
+    "lng": -74.20595,
+    "cuadra": "C11-CR8-CR9",
+    "categoria": "invasion_anden",
+    "actor": "mobiliario_comercial",
+    "foto": "datos/fotos/mp-007.jpg",
+    "criticidad": {
+      "puntaje": 6,
+      "nivel": "Medio",
+      "franja": "valle"
+    }
   },
   {
     "id": "MP-008",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T10:05",
-    "lat": 11.2458,
-    "lng": -74.2062,
+    "fecha_hora": "2026-11-18T11:40",
+    "lat": 11.24538,
+    "lng": -74.2059,
     "cuadra": "C11-CR8-CR9",
-    "categoria": "invasion_anden",
-    "actor": "mobiliario_comercial",
-    "foto": "",
-    "criticidad": { "puntaje": 4, "nivel": "Bajo" }
+    "categoria": "doble_fila",
+    "actor": "vehiculo_particular",
+    "foto": "datos/fotos/mp-008.jpg",
+    "criticidad": {
+      "puntaje": 9,
+      "nivel": "Alto",
+      "franja": "pico"
+    }
   },
   {
     "id": "MP-009",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T11:35",
-    "lat": 11.2442,
-    "lng": -74.2106,
-    "cuadra": "CR5-C14-C15",
-    "categoria": "doble_fila",
-    "actor": "vehiculo_particular",
-    "foto": "",
-    "criticidad": { "puntaje": 9, "nivel": "Alto" }
+    "fecha_hora": "2026-11-18T09:45",
+    "lat": 11.2454,
+    "lng": -74.20585,
+    "cuadra": "C11-CR8-CR9",
+    "categoria": "invasion_anden",
+    "actor": "motocicleta",
+    "foto": "datos/fotos/mp-009.jpg",
+    "criticidad": {
+      "puntaje": 6,
+      "nivel": "Medio",
+      "franja": "valle"
+    }
   },
   {
     "id": "MP-010",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T11:45",
-    "lat": 11.2442,
-    "lng": -74.2105,
-    "cuadra": "CR5-C14-C15",
-    "categoria": "bloqueo_rampa_cebra_paradero",
+    "fecha_hora": "2026-11-18T11:55",
+    "lat": 11.24541,
+    "lng": -74.2058,
+    "cuadra": "C11-CR8-CR9",
+    "categoria": "invasion_anden",
     "actor": "motocicleta",
-    "foto": "",
-    "criticidad": { "puntaje": 9, "nivel": "Alto" }
+    "foto": "datos/fotos/mp-010.jpg",
+    "criticidad": {
+      "puntaje": 8,
+      "nivel": "Alto",
+      "franja": "pico"
+    }
   },
   {
     "id": "MP-011",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T11:55",
-    "lat": 11.2435,
-    "lng": -74.2107,
-    "cuadra": "CR5-C15-C16",
-    "categoria": "invasion_anden",
-    "actor": "mobiliario_comercial",
-    "foto": "",
-    "criticidad": { "puntaje": 8, "nivel": "Alto" }
+    "fecha_hora": "2026-11-18T12:10",
+    "lat": 11.24539,
+    "lng": -74.20575,
+    "cuadra": "C11-CR8-CR9",
+    "categoria": "bloqueo_rampa_cebra_paradero",
+    "actor": "motocicleta",
+    "foto": "datos/fotos/mp-011.jpg",
+    "criticidad": {
+      "puntaje": 9,
+      "nivel": "Alto",
+      "franja": "pico"
+    }
   },
   {
     "id": "MP-012",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T12:10",
-    "lat": 11.2435,
-    "lng": -74.2108,
-    "cuadra": "CR5-C15-C16",
+    "fecha_hora": "2026-11-18T10:05",
+    "lat": 11.2454,
+    "lng": -74.2057,
+    "cuadra": "C11-CR8-CR9",
     "categoria": "doble_fila",
-    "actor": "vehiculo_carga",
-    "foto": "",
-    "criticidad": { "puntaje": 9, "nivel": "Alto" }
+    "actor": "mobiliario_comercial",
+    "foto": "datos/fotos/mp-012.jpg",
+    "criticidad": {
+      "puntaje": 7,
+      "nivel": "Alto",
+      "franja": "valle"
+    }
   },
   {
     "id": "MP-013",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T12:20",
-    "lat": 11.2428,
-    "lng": -74.2108,
-    "cuadra": "CR5-C16-C17",
-    "categoria": "invasion_anden",
-    "actor": "mobiliario_comercial",
-    "foto": "",
-    "criticidad": { "puntaje": 8, "nivel": "Alto" }
+    "fecha_hora": "2026-11-18T12:25",
+    "lat": 11.24542,
+    "lng": -74.20565,
+    "cuadra": "C11-CR8-CR9",
+    "categoria": "doble_fila",
+    "actor": "vehiculo_particular",
+    "foto": "datos/fotos/mp-013.jpg",
+    "criticidad": {
+      "puntaje": 9,
+      "nivel": "Alto",
+      "franja": "pico"
+    }
   },
   {
     "id": "MP-014",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T12:30",
-    "lat": 11.2421,
-    "lng": -74.2109,
-    "cuadra": "CR5-C17-C18",
-    "categoria": "invasion_anden",
-    "actor": "mobiliario_comercial",
-    "foto": "",
-    "criticidad": { "puntaje": 8, "nivel": "Alto" }
+    "fecha_hora": "2026-11-18T12:40",
+    "lat": 11.24539,
+    "lng": -74.2056,
+    "cuadra": "C11-CR8-CR9",
+    "categoria": "doble_fila",
+    "actor": "vehiculo_carga",
+    "foto": "datos/fotos/mp-014.jpg",
+    "criticidad": {
+      "puntaje": 9,
+      "nivel": "Alto",
+      "franja": "pico"
+    }
   },
   {
     "id": "MP-015",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T12:45",
-    "lat": 11.2454,
-    "lng": -74.2055,
-    "cuadra": "CR9-C11-C12",
+    "fecha_hora": "2026-11-18T10:20",
+    "lat": 11.24541,
+    "lng": -74.20556,
+    "cuadra": "C11-CR8-CR9",
     "categoria": "doble_fila",
     "actor": "vehiculo_carga",
-    "foto": "",
-    "criticidad": { "puntaje": 9, "nivel": "Alto" }
+    "foto": "datos/fotos/mp-015.jpg",
+    "criticidad": {
+      "puntaje": 7,
+      "nivel": "Alto",
+      "franja": "valle"
+    }
   },
   {
     "id": "MP-016",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T13:00",
-    "lat": 11.2454,
-    "lng": -74.2056,
-    "cuadra": "CR9-C11-C12",
-    "categoria": "bloqueo_rampa_cebra_paradero",
-    "actor": "vehiculo_carga",
-    "foto": "",
-    "criticidad": { "puntaje": 9, "nivel": "Alto" }
+    "fecha_hora": "2026-11-18T10:35",
+    "lat": 11.24552,
+    "lng": -74.2055,
+    "cuadra": "CR9-C10-C11",
+    "categoria": "invasion_anden",
+    "actor": "mobiliario_comercial",
+    "foto": "datos/fotos/mp-016.jpg",
+    "criticidad": {
+      "puntaje": 6,
+      "nivel": "Medio",
+      "franja": "valle"
+    }
   },
   {
     "id": "MP-017",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T13:15",
-    "lat": 11.2458,
-    "lng": -74.2062,
-    "cuadra": "C11-CR8-CR9",
-    "categoria": "invasion_anden",
-    "actor": "mobiliario_comercial",
-    "foto": "",
-    "criticidad": { "puntaje": 6, "nivel": "Medio" }
+    "fecha_hora": "2026-11-18T12:55",
+    "lat": 11.24562,
+    "lng": -74.20551,
+    "cuadra": "CR9-C10-C11",
+    "categoria": "doble_fila",
+    "actor": "vehiculo_particular",
+    "foto": "datos/fotos/mp-017.jpg",
+    "criticidad": {
+      "puntaje": 9,
+      "nivel": "Alto",
+      "franja": "pico"
+    }
   },
   {
     "id": "MP-018",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T15:10",
-    "lat": 11.2442,
-    "lng": -74.2106,
-    "cuadra": "CR5-C14-C15",
-    "categoria": "doble_fila",
-    "actor": "vehiculo_particular",
-    "foto": "",
-    "criticidad": { "puntaje": 7, "nivel": "Alto" }
+    "fecha_hora": "2026-11-18T10:50",
+    "lat": 11.24572,
+    "lng": -74.20549,
+    "cuadra": "CR9-C10-C11",
+    "categoria": "invasion_anden",
+    "actor": "motocicleta",
+    "foto": "datos/fotos/mp-018.jpg",
+    "criticidad": {
+      "puntaje": 6,
+      "nivel": "Medio",
+      "franja": "valle"
+    }
   },
   {
     "id": "MP-019",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T15:25",
-    "lat": 11.2435,
-    "lng": -74.2107,
-    "cuadra": "CR5-C15-C16",
+    "fecha_hora": "2026-11-18T14:15",
+    "lat": 11.24582,
+    "lng": -74.2055,
+    "cuadra": "CR9-C10-C11",
     "categoria": "invasion_anden",
     "actor": "motocicleta",
-    "foto": "",
-    "criticidad": { "puntaje": 6, "nivel": "Medio" }
+    "foto": "datos/fotos/mp-019.jpg",
+    "criticidad": {
+      "puntaje": 6,
+      "nivel": "Medio",
+      "franja": "valle"
+    }
   },
   {
     "id": "MP-020",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T15:40",
-    "lat": 11.2436,
-    "lng": -74.2116,
-    "cuadra": "CR4-C15-C16",
-    "categoria": "bloqueo_rampa_cebra_paradero",
-    "actor": "motocicleta",
-    "foto": "",
-    "criticidad": { "puntaje": 5, "nivel": "Medio" }
+    "fecha_hora": "2026-11-18T11:05",
+    "lat": 11.24592,
+    "lng": -74.20551,
+    "cuadra": "CR9-C10-C11",
+    "categoria": "doble_fila",
+    "actor": "vehiculo_particular",
+    "foto": "datos/fotos/mp-020.jpg",
+    "criticidad": {
+      "puntaje": 7,
+      "nivel": "Alto",
+      "franja": "valle"
+    }
   },
   {
     "id": "MP-021",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T15:55",
-    "lat": 11.2445,
-    "lng": -74.2111,
-    "cuadra": "C14-CR4-CR5",
-    "categoria": "doble_fila",
+    "fecha_hora": "2026-11-18T17:15",
+    "lat": 11.24605,
+    "lng": -74.2055,
+    "cuadra": "CR9-C10-C11",
+    "categoria": "bloqueo_rampa_cebra_paradero",
     "actor": "vehiculo_particular",
-    "foto": "",
-    "criticidad": { "puntaje": 5, "nivel": "Medio" }
+    "foto": "datos/fotos/mp-021.jpg",
+    "criticidad": {
+      "puntaje": 9,
+      "nivel": "Alto",
+      "franja": "pico"
+    }
   },
   {
     "id": "MP-022",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T16:10",
-    "lat": 11.2428,
-    "lng": -74.2108,
-    "cuadra": "CR5-C16-C17",
+    "fecha_hora": "2026-11-18T14:30",
+    "lat": 11.24618,
+    "lng": -74.20549,
+    "cuadra": "CR9-C10-C11",
     "categoria": "invasion_anden",
-    "actor": "mobiliario_comercial",
-    "foto": "",
-    "criticidad": { "puntaje": 6, "nivel": "Medio" }
+    "actor": "motocicleta",
+    "foto": "datos/fotos/mp-022.jpg",
+    "criticidad": {
+      "puntaje": 6,
+      "nivel": "Medio",
+      "franja": "valle"
+    }
   },
   {
     "id": "MP-023",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T16:25",
-    "lat": 11.2421,
-    "lng": -74.2109,
-    "cuadra": "CR5-C17-C18",
-    "categoria": "bloqueo_rampa_cebra_paradero",
-    "actor": "vehiculo_particular",
-    "foto": "",
-    "criticidad": { "puntaje": 7, "nivel": "Alto" }
+    "fecha_hora": "2026-11-18T14:45",
+    "lat": 11.2463,
+    "lng": -74.20562,
+    "cuadra": "C10-CR8-CR9",
+    "categoria": "invasion_anden",
+    "actor": "mobiliario_comercial",
+    "foto": "datos/fotos/mp-023.jpg",
+    "criticidad": {
+      "puntaje": 4,
+      "nivel": "Bajo",
+      "franja": "valle"
+    }
   },
   {
     "id": "MP-024",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T17:15",
-    "lat": 11.2442,
-    "lng": -74.2106,
-    "cuadra": "CR5-C14-C15",
-    "categoria": "doble_fila",
-    "actor": "vehiculo_particular",
-    "foto": "",
-    "criticidad": { "puntaje": 9, "nivel": "Alto" }
+    "fecha_hora": "2026-11-18T15:00",
+    "lat": 11.24631,
+    "lng": -74.20574,
+    "cuadra": "C10-CR8-CR9",
+    "categoria": "invasion_anden",
+    "actor": "motocicleta",
+    "foto": "datos/fotos/mp-024.jpg",
+    "criticidad": {
+      "puntaje": 4,
+      "nivel": "Bajo",
+      "franja": "valle"
+    }
   },
   {
     "id": "MP-025",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T17:30",
-    "lat": 11.2435,
-    "lng": -74.2107,
-    "cuadra": "CR5-C15-C16",
-    "categoria": "bloqueo_rampa_cebra_paradero",
+    "fecha_hora": "2026-11-18T15:15",
+    "lat": 11.24629,
+    "lng": -74.20586,
+    "cuadra": "C10-CR8-CR9",
+    "categoria": "doble_fila",
     "actor": "vehiculo_particular",
-    "foto": "",
-    "criticidad": { "puntaje": 9, "nivel": "Alto" }
+    "foto": "datos/fotos/mp-025.jpg",
+    "criticidad": {
+      "puntaje": 5,
+      "nivel": "Medio",
+      "franja": "valle"
+    }
   },
   {
     "id": "MP-026",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T17:45",
-    "lat": 11.2454,
-    "lng": -74.2055,
-    "cuadra": "CR9-C11-C12",
+    "fecha_hora": "2026-11-18T17:30",
+    "lat": 11.2463,
+    "lng": -74.20598,
+    "cuadra": "C10-CR8-CR9",
     "categoria": "doble_fila",
-    "actor": "vehiculo_carga",
-    "foto": "",
-    "criticidad": { "puntaje": 9, "nivel": "Alto" }
+    "actor": "motocicleta",
+    "foto": "datos/fotos/mp-026.jpg",
+    "criticidad": {
+      "puntaje": 7,
+      "nivel": "Alto",
+      "franja": "pico"
+    }
   },
   {
     "id": "MP-027",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T18:00",
-    "lat": 11.2454,
-    "lng": -74.2054,
-    "cuadra": "CR9-C11-C12",
-    "categoria": "invasion_anden",
-    "actor": "mobiliario_comercial",
-    "foto": "",
-    "criticidad": { "puntaje": 8, "nivel": "Alto" }
+    "fecha_hora": "2026-11-18T15:35",
+    "lat": 11.24631,
+    "lng": -74.2061,
+    "cuadra": "C10-CR8-CR9",
+    "categoria": "doble_fila",
+    "actor": "vehiculo_particular",
+    "foto": "datos/fotos/mp-027.jpg",
+    "criticidad": {
+      "puntaje": 5,
+      "nivel": "Medio",
+      "franja": "valle"
+    }
   },
   {
     "id": "MP-028",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T18:20",
-    "lat": 11.2428,
-    "lng": -74.2108,
-    "cuadra": "CR5-C16-C17",
+    "fecha_hora": "2026-11-18T17:50",
+    "lat": 11.24629,
+    "lng": -74.2062,
+    "cuadra": "C10-CR8-CR9",
     "categoria": "doble_fila",
-    "actor": "motocicleta",
-    "foto": "",
-    "criticidad": { "puntaje": 9, "nivel": "Alto" }
+    "actor": "vehiculo_carga",
+    "foto": "datos/fotos/mp-028.jpg",
+    "criticidad": {
+      "puntaje": 7,
+      "nivel": "Alto",
+      "franja": "pico"
+    }
   },
   {
     "id": "MP-029",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T18:40",
-    "lat": 11.2436,
-    "lng": -74.2116,
-    "cuadra": "CR4-C15-C16",
+    "fecha_hora": "2026-11-18T15:50",
+    "lat": 11.2463,
+    "lng": -74.2063,
+    "cuadra": "C10-CR8-CR9",
     "categoria": "invasion_anden",
     "actor": "motocicleta",
-    "foto": "",
-    "criticidad": { "puntaje": 6, "nivel": "Medio" }
+    "foto": "datos/fotos/mp-029.jpg",
+    "criticidad": {
+      "puntaje": 4,
+      "nivel": "Bajo",
+      "franja": "valle"
+    }
   },
   {
     "id": "MP-030",
     "origen": "campo",
-    "fecha_hora": "2026-11-12T19:00",
-    "lat": 11.2458,
-    "lng": -74.2062,
-    "cuadra": "C11-CR8-CR9",
-    "categoria": "bloqueo_rampa_cebra_paradero",
-    "actor": "vehiculo_carga",
-    "foto": "",
-    "criticidad": { "puntaje": 7, "nivel": "Alto" }
+    "fecha_hora": "2026-11-18T16:10",
+    "lat": 11.2459,
+    "lng": -74.2064,
+    "cuadra": "CR8-C10-C11",
+    "categoria": "doble_fila",
+    "actor": "vehiculo_particular",
+    "foto": "datos/fotos/mp-030.jpg",
+    "criticidad": {
+      "puntaje": 5,
+      "nivel": "Medio",
+      "franja": "valle"
+    }
   }
 ]
