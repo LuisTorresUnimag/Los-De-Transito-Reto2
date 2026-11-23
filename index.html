@@ -4,34 +4,60 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Control de Mal Parqueo · Santa Marta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="topbar">
     <div class="topbar-inner">
-      <div>
-        <h1>Control de Espacio Público · Santa Marta</h1>
-        <p class="subtitulo">Reto No. 2 · Ingeniería de Sistemas · Universidad del Magdalena</p>
+      <div class="marca">
+        <div class="marca-icono" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div>
+          <h1>Control de Espacio Público · Santa Marta</h1>
+          <p class="subtitulo">Reto No. 2 · Ingeniería de Sistemas · Universidad del Magdalena</p>
+        </div>
       </div>
-      <nav class="tabs no-print">
-        <button id="tab-captura" class="tab-btn activo" type="button">Reportar (&lt; 30 s)</button>
-        <button id="tab-tablero" class="tab-btn" type="button">Tablero y Mapa</button>
+
+      <nav class="tabs no-print" aria-label="Vistas principales">
+        <button id="tab-captura" class="tab-btn activo" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+          Reportar (&lt; 30 s)
+        </button>
+        <button id="tab-tablero" class="tab-btn" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+          Tablero y Mapa
+        </button>
       </nav>
     </div>
   </header>
 
   <main class="contenedor">
     <!-- VISTA 1: CAPTURA RÁPIDA (MÓVIL) -->
-    <section id="vista-captura" class="card">
-      <h2>Nuevo reporte de obstrucción</h2>
-      <p class="ayuda">Marca el punto en el mapa o usa el GPS, elige categoría y actor. <strong>Recuerda:</strong> no fotografíes rostros ni placas.</p>
+    <section id="vista-captura" class="card card-captura">
+      <div class="card-encabezado">
+        <div>
+          <span class="etiqueta-modulo">Captura en campo</span>
+          <h2>Nuevo reporte de obstrucción</h2>
+          <p class="ayuda">Marca el punto en el mapa o usa el GPS, elige categoría y actor. <strong>Privacidad:</strong> no fotografíes rostros ni placas.</p>
+        </div>
+      </div>
 
       <form id="form-captura">
         <div class="campo">
-          <label>1. Ubicación en el mapa</label>
+          <label><span class="paso-num">1</span> Ubicación en el mapa</label>
           <div class="ubicacion-acciones">
-            <button id="btn-gps" type="button" class="btn-secundario">Usar mi ubicación GPS</button>
+            <button id="btn-gps" type="button" class="btn-secundario btn-gps">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+              Usar mi ubicación GPS
+            </button>
             <div class="coords-mini">
               <input id="captura-lat" type="text" placeholder="Latitud" readonly required />
               <input id="captura-lng" type="text" placeholder="Longitud" readonly required />
@@ -41,53 +67,55 @@
         </div>
 
         <div class="campo">
-          <label for="captura-cuadra">2. Cuadra (se sugiere según el punto)</label>
+          <label for="captura-cuadra"><span class="paso-num">2</span> Cuadra (sugerida según el punto)</label>
           <select id="captura-cuadra" required></select>
         </div>
 
         <div class="campo">
-          <label>3. Categoría de obstrucción</label>
+          <label><span class="paso-num">3</span> Categoría de obstrucción</label>
           <div class="opciones-grid">
             <label class="opcion-card">
               <input type="radio" name="categoria" value="doble_fila" required />
-              <span>Estacionamiento en vía prohibida o doble fila</span>
+              <span class="opcion-texto">Estacionamiento en vía prohibida o doble fila</span>
             </label>
             <label class="opcion-card">
               <input type="radio" name="categoria" value="bloqueo_rampa_cebra_paradero" />
-              <span>Bloqueo de rampa peatonal, cebra o paradero</span>
+              <span class="opcion-texto">Bloqueo de rampa peatonal, cebra o paradero</span>
             </label>
             <label class="opcion-card">
               <input type="radio" name="categoria" value="invasion_anden" />
-              <span>Invasión de andén por comercio o mercancía</span>
+              <span class="opcion-texto">Invasión de andén por comercio o mercancía</span>
             </label>
           </div>
         </div>
 
         <div class="campo">
-          <label>4. Tipo de actor</label>
+          <label><span class="paso-num">4</span> Tipo de actor</label>
           <div class="opciones-grid">
             <label class="opcion-card">
               <input type="radio" name="actor" value="vehiculo_particular" required />
-              <span>Vehículo particular</span>
+              <span class="opcion-texto">Vehículo particular</span>
             </label>
             <label class="opcion-card">
               <input type="radio" name="actor" value="motocicleta" />
-              <span>Motocicleta</span>
+              <span class="opcion-texto">Motocicleta</span>
             </label>
             <label class="opcion-card">
               <input type="radio" name="actor" value="vehiculo_carga" />
-              <span>Vehículo de carga descargando</span>
+              <span class="opcion-texto">Vehículo de carga descargando</span>
             </label>
             <label class="opcion-card">
               <input type="radio" name="actor" value="mobiliario_comercial" />
-              <span>Mobiliario comercial</span>
+              <span class="opcion-texto">Mobiliario comercial</span>
             </label>
           </div>
         </div>
 
         <div class="campo">
-          <label for="captura-foto">5. Foto anonimizada (opcional, se reduce a 800 px)</label>
-          <input id="captura-foto" type="file" accept="image/*" capture="environment" />
+          <label for="captura-foto"><span class="paso-num">5</span> Foto anonimizada (opcional, máx. 800 px)</label>
+          <div class="foto-dropzone">
+            <input id="captura-foto" type="file" accept="image/*" capture="environment" />
+          </div>
           <img id="foto-preview" class="foto-preview oculto" alt="Vista previa de evidencia" />
         </div>
 
@@ -100,7 +128,10 @@
     <section id="vista-tablero" class="oculto">
       <div class="card no-print">
         <div class="filtros-header">
-          <h2>Filtros del tablero</h2>
+          <div>
+            <span class="etiqueta-modulo">Segmentación</span>
+            <h2>Filtros del tablero</h2>
+          </div>
           <button id="btn-limpiar-filtros" type="button" class="btn-enlace">Limpiar filtros</button>
         </div>
         <div class="filtros-grid">
@@ -143,19 +174,19 @@
       </div>
 
       <div class="kpis-grid">
-        <div class="kpi-card">
+        <div class="kpi-card kpi-azul">
           <span class="kpi-label">Reportes filtrados</span>
           <strong id="kpi-total" class="kpi-valor">0</strong>
         </div>
-        <div class="kpi-card">
+        <div class="kpi-card kpi-rojo">
           <span class="kpi-label">Doble fila / vía prohibida</span>
           <strong id="kpi-doble-fila" class="kpi-valor">0%</strong>
         </div>
-        <div class="kpi-card">
+        <div class="kpi-card kpi-ambar">
           <span class="kpi-label">Bloqueo rampa / cebra</span>
           <strong id="kpi-bloqueo" class="kpi-valor">0%</strong>
         </div>
-        <div class="kpi-card">
+        <div class="kpi-card kpi-verde">
           <span class="kpi-label">Invasión de andén</span>
           <strong id="kpi-anden" class="kpi-valor">0%</strong>
         </div>
@@ -163,10 +194,13 @@
 
       <div class="card no-print">
         <div class="mapa-controles">
-          <h2>Mapa de calor y puntos de reincidencia</h2>
+          <div>
+            <span class="etiqueta-modulo">Georreferenciación</span>
+            <h2>Mapa de calor y puntos de reincidencia</h2>
+          </div>
           <div class="capas-toggles">
-            <label><input id="toggle-calor" type="checkbox" checked /> Capa de calor</label>
-            <label><input id="toggle-puntos" type="checkbox" checked /> Puntos individuales</label>
+            <label class="toggle-pill"><input id="toggle-calor" type="checkbox" checked /> Capa de calor</label>
+            <label class="toggle-pill"><input id="toggle-puntos" type="checkbox" checked /> Puntos individuales</label>
           </div>
         </div>
         <div id="mapa-tablero" class="mapa-principal"></div>
@@ -174,7 +208,10 @@
 
       <div class="card">
         <div class="resumen-header">
-          <h2>Resumen operativo · Top 5 cuadras más críticas</h2>
+          <div>
+            <span class="etiqueta-modulo">Priorización</span>
+            <h2>Resumen operativo · Top 5 cuadras más críticas</h2>
+          </div>
           <div class="acciones-resumen no-print">
             <button id="btn-imprimir" type="button" class="btn-secundario">Imprimir resumen</button>
             <button id="btn-exportar" type="button" class="btn-secundario">Exportar JSON</button>
@@ -202,6 +239,7 @@
       </div>
     </section>
   </main>
+
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
   <script src="criticidad.js"></script>
