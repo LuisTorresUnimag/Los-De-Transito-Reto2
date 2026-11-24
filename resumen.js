@@ -1,9 +1,31 @@
 /**
  * resumen.js
- * Agrupa reportes por cuadra, suma puntajes, ordena Top 5 y aplica reglas de recomendación.
+ * Agrupa reportes por cuadra, suma puntajes, ordena Top 5, aplica reglas de recomendación
+ * y expone formateadores de etiquetas para popups y tablas (ResumenModule / ModuloResumen).
  */
 (function (root) {
   'use strict';
+
+  const ETIQUETAS_CATEGORIA = {
+    doble_fila: 'Estacionamiento en vía prohibida o doble fila',
+    bloqueo_rampa_cebra_paradero: 'Bloqueo de rampa peatonal, cebra o paradero',
+    invasion_anden: 'Invasión de andén por comercio o mercancía'
+  };
+
+  const ETIQUETAS_ACTOR = {
+    vehiculo_particular: 'Vehículo particular',
+    motocicleta: 'Motocicleta',
+    vehiculo_carga: 'Vehículo de carga descargando',
+    mobiliario_comercial: 'Mobiliario comercial'
+  };
+
+  function formatearCategoria(categoria) {
+    return ETIQUETAS_CATEGORIA[categoria] || categoria || 'Sin categoría';
+  }
+
+  function formatearActor(actor) {
+    return ETIQUETAS_ACTOR[actor] || actor || 'Sin actor';
+  }
 
   function aplicarReglaRecomendacion(grupo) {
     if (grupo.altosEnPico >= 3) {
@@ -52,12 +74,12 @@
     for (const rep of reportes) {
       const id = rep.cuadra || 'SIN-CUADRA';
       if (!grupos.has(id)) {
-        const infoVia = Array.isArray(vias) ? vias.find((v) => v.cuadra === id) : null;
+        const infoVia = Array.isArray(vias) ? vias.find((v) => v.cuadra === id || v.id === id) : null;
         grupos.set(id, {
           cuadra: id,
           nombre: infoVia ? infoVia.nombre : id,
           sector: infoVia ? infoVia.sector : 'Sin sector',
-          tipo_via: infoVia ? infoVia.tipo_via : 'secundaria',
+          tipo_via: infoVia ? (infoVia.tipo_via || infoVia.tipo) : 'secundaria',
           puntajeTotal: 0,
           cantidad: 0,
           altosEnPico: 0,
@@ -98,12 +120,15 @@
 
   const api = {
     generarResumenOperativo,
-    aplicarReglaRecomendacion
+    aplicarReglaRecomendacion,
+    formatearCategoria,
+    formatearActor
   };
 
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = api;
   } else {
     root.ResumenModule = api;
+    root.ModuloResumen = api;
   }
 })(typeof window !== 'undefined' ? window : globalThis);
