@@ -199,10 +199,14 @@
             <h2>Mapa de calor y puntos de reincidencia</h2>
           </div>
           <div class="capas-toggles">
-            <label class="toggle-pill"><input id="toggle-calor" type="checkbox" checked /> Capa de calor</label>
-            <label class="toggle-pill"><input id="toggle-puntos" type="checkbox" checked /> Puntos individuales</label>
+            <label class="toggle-pill"><input id="toggle-capa-calor" type="checkbox" checked /> Capa de calor</label>
+            <label class="toggle-pill"><input id="toggle-capa-marcadores" type="checkbox" checked /> Puntos individuales</label>
+            <label class="toggle-pill"><input id="toggle-capa-cuadras" type="checkbox" checked /> Cuadras</label>
+            <button id="btn-vista-solo-calor" type="button" class="btn-secundario">Solo calor</button>
+            <button id="btn-vista-completa" type="button" class="btn-secundario">Vista completa</button>
           </div>
         </div>
+        <div id="leyenda-calor-nota" class="leyenda-calor-nota">Cargando intensidad térmica...</div>
         <div id="mapa-tablero" class="mapa-principal"></div>
       </div>
 
