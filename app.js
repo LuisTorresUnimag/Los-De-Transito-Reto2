@@ -1,7 +1,7 @@
 /**
  * app.js
  * Controlador principal: carga los JSON de datos/, combina con localStorage,
- * recalcula la criticidad con criterios.json y coordina las vistas Captura y Tablero.
+ * recalcula la criticidad con criterios.json y coordina ModuloMapa con las vistas.
  */
 (function () {
   'use strict';
@@ -12,7 +12,8 @@
     reportesBase: [],
     reportesLocales: [],
     reportesTotales: [],
-    fotoComprimida: ''
+    fotoComprimida: '',
+    tableroInicializado: false
   };
 
   async function cargarDatosIniciales() {
@@ -34,7 +35,9 @@
     combinarYRecalcular();
     poblarSelectores();
     inicializarEventos();
-    renderizarTablero();
+
+    // Mostrar puntos de referencia también en el mapa de captura
+    window.ModuloMapa.actualizarDatos(estado.reportesTotales);
   }
 
   function combinarYRecalcular() {
@@ -70,14 +73,15 @@
 
     for (const v of estado.vias) {
       sectores.add(v.sector);
+      const idCuadra = v.cuadra || v.id;
       const opt1 = document.createElement('option');
-      opt1.value = v.cuadra;
-      opt1.textContent = `${v.cuadra} — ${v.nombre}`;
+      opt1.value = idCuadra;
+      opt1.textContent = `${idCuadra} — ${v.nombre}`;
       selectCuadraCaptura.appendChild(opt1);
 
       const opt2 = document.createElement('option');
-      opt2.value = v.cuadra;
-      opt2.textContent = `${v.cuadra} (${v.sector})`;
+      opt2.value = idCuadra;
+      opt2.textContent = `${idCuadra} (${v.sector})`;
       selectCuadraFiltro.appendChild(opt2);
     }
 
@@ -115,11 +119,11 @@
     document.getElementById('kpi-bloqueo').textContent = `${stats.porcentajes.bloqueo_rampa_cebra_paradero}%`;
     document.getElementById('kpi-anden').textContent = `${stats.porcentajes.invasion_anden}%`;
 
-    const mostrarCalor = document.getElementById('toggle-calor').checked;
-    const mostrarPuntos = document.getElementById('toggle-puntos').checked;
-
-    window.MapaModule.inicializarMapaTablero('mapa-tablero');
-    window.MapaModule.actualizarCapasMapa(filtrados, mostrarCalor, mostrarPuntos);
+    if (!estado.tableroInicializado) {
+      window.ModuloMapa.inicializarPrincipal('mapa-tablero', estado.vias, null);
+      estado.tableroInicializado = true;
+    }
+    window.ModuloMapa.actualizarDatos(filtrados);
 
     renderizarResumenOperativo(filtrados);
   }
@@ -167,17 +171,14 @@
       btnTablero.classList.remove('activo');
       secCaptura.classList.remove('oculto');
       secTablero.classList.add('oculto');
-      window.MapaModule.inicializarMapaCaptura('mapa-captura', (lat, lng) => {
-        actualizarCoordsCaptura(lat, lng);
-      });
+      window.ModuloMapa.invalidarTamano();
     } else {
       btnTablero.classList.add('activo');
       btnCaptura.classList.remove('activo');
       secTablero.classList.remove('oculto');
       secCaptura.classList.add('oculto');
-      setTimeout(() => {
-        renderizarTablero();
-      }, 60);
+      renderizarTablero();
+      window.ModuloMapa.invalidarTamano();
     }
   }
 
@@ -194,35 +195,40 @@
     document.getElementById('tab-captura').addEventListener('click', () => cambiarVista('captura'));
     document.getElementById('tab-tablero').addEventListener('click', () => cambiarVista('tablero'));
 
-    window.MapaModule.inicializarMapaCaptura('mapa-captura', (lat, lng) => {
-      actualizarCoordsCaptura(lat, lng);
+    window.ModuloMapa.inicializarCaptura('mapa-captura', estado.vias, (latlng) => {
+      window.ModuloMapa.fijarPuntoRegistro(latlng.lat, latlng.lng);
+      actualizarCoordsCaptura(latlng.lat, latlng.lng);
     });
 
     document.getElementById('btn-gps').addEventListener('click', () => {
       const msg = document.getElementById('captura-mensaje');
       if (!navigator.geolocation) {
         msg.textContent = 'Tu navegador no soporta geolocalización. Toca el mapa para ubicar.';
+        msg.className = 'mensaje-alerta error';
         return;
       }
       msg.textContent = 'Obteniendo ubicación GPS...';
+      msg.className = 'mensaje-alerta';
       navigator.geolocation.getCurrentPosition(
         (pos) => {
           const { latitude, longitude } = pos.coords;
-          window.MapaModule.fijarMarcadorCaptura(latitude, longitude);
+          window.ModuloMapa.fijarPuntoRegistro(latitude, longitude);
           actualizarCoordsCaptura(latitude, longitude);
           msg.textContent = 'Ubicación GPS fijada.';
+          msg.className = 'mensaje-alerta exito';
         },
         () => {
           msg.textContent = 'No se pudo obtener el GPS. Toca directamente el mapa.';
+          msg.className = 'mensaje-alerta error';
         },
         { enableHighAccuracy: true, timeout: 8000 }
       );
     });
 
     document.getElementById('captura-cuadra').addEventListener('change', (e) => {
-      const cuadra = estado.vias.find((v) => v.cuadra === e.target.value);
+      const cuadra = estado.vias.find((v) => (v.cuadra || v.id) === e.target.value);
       if (cuadra) {
-        window.MapaModule.fijarMarcadorCaptura(cuadra.lat, cuadra.lng);
+        window.ModuloMapa.fijarPuntoRegistro(cuadra.lat, cuadra.lng);
         document.getElementById('captura-lat').value = cuadra.lat.toFixed(6);
         document.getElementById('captura-lng').value = cuadra.lng.toFixed(6);
       }
@@ -274,6 +280,8 @@
       estado.reportesLocales.push(nuevo);
       window.CapturaModule.guardarReportesLocales(estado.reportesLocales);
       combinarYRecalcular();
+      window.ModuloMapa.limpiarPuntoRegistro();
+      window.ModuloMapa.actualizarDatos(estado.reportesTotales);
 
       msg.textContent = `Reporte ${nuevo.id} guardado · Criticidad: ${nuevo.criticidad.nivel} (${nuevo.criticidad.puntaje} pts).`;
       msg.className = 'mensaje-alerta exito';
@@ -288,9 +296,7 @@
       'filtro-cuadra',
       'filtro-franja',
       'filtro-categoria',
-      'filtro-actor',
-      'toggle-calor',
-      'toggle-puntos'
+      'filtro-actor'
     ];
     for (const id of idsFiltros) {
       document.getElementById(id).addEventListener('change', renderizarTablero);
