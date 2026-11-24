@@ -567,3 +567,44 @@ select:focus {
     padding: 0;
   }
 }
+
+/* Estilos adicionales para ModuloMapa (foco, leyenda térmica y tooltips) */
+.leyenda-calor-nota {
+  font-size: 0.84rem;
+  color: var(--gris);
+  background: #f8fafc;
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+}
+
+.foco-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(15, 23, 42, 0.92);
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.foco-chip-punto {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ef4444;
+  display: inline-block;
+}
+
+.foco-chip-pts {
+  background: rgba(255, 255, 255, 0.16);
+  padding: 1px 6px;
+  border-radius: 999px;
+  font-size: 10px;
+}
